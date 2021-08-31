@@ -107,7 +107,8 @@ class HomeController extends Controller
                 ->whereYear('created_at', $actualmonth->year)
                 ->WhereMonth('created_at', $actualmonth->month)
                 ->sum('amount');
-
+           
+            
             $semesterincomes += $incomes;
             $lastincomes = round($incomes).','.$lastincomes;
 

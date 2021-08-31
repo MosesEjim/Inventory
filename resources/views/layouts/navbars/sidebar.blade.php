@@ -46,18 +46,6 @@
                                 <p>Income</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'transfers') class="active " @endif>
-                            <a href="{{ route('transfer.index')  }}">
-                                <i class="tim-icons icon-send"></i>
-                                <p>Transfers</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'payments') class="active " @endif>
-                            <a href="{{ route('transactions.type', ['type' => 'payment'])  }}">
-                                <i class="tim-icons icon-money-coins"></i>
-                                <p>Payments</p>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
@@ -106,12 +94,7 @@
                 </a>
             </li>
 
-            <li @if ($pageSlug == 'providers') class="active " @endif>
-                <a href="{{ route('providers.index') }}">
-                    <i class="tim-icons icon-delivery-fast"></i>
-                    <p>Providers</p>
-                </a>
-            </li>
+           
 
             <li @if ($pageSlug == 'methods') class="active " @endif>
                 <a href="{{ route('methods.index') }}">

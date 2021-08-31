@@ -54,13 +54,7 @@
                                             @include('alerts.feedback', ['field' => 'stock'])
                                         </div>
                                     </div>                            
-                                    <div class="col-4">                                    
-                                        <div class="form-group{{ $errors->has('stock_defective') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-stock_defective">Defective Stock</label>
-                                            <input type="number" name="stock_defective" id="input-stock_defective" class="form-control form-control-alternative" placeholder="Defective Stock" value="{{ old('stock_defective') }}" required>
-                                            @include('alerts.feedback', ['field' => 'stock_defective'])
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-4">                                    
                                         <div class="form-group{{ $errors->has('price') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-price">Price</label>

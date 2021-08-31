@@ -60,7 +60,7 @@
                                         </td>
                                         <td>
                                             @if ($transaction->transfer)
-                                                <a href="{{ route('transfer.show', $transaction->transfer) }}">ID {{ $transaction->transfer->id }}</a>
+                                                {{-- <a href="{{ route('transfer.show', $transaction->transfer) }}">ID {{ $transaction->transfer->id }}</a> --}}
                                             @else
                                                 Does not apply
                                             @endif
@@ -71,9 +71,9 @@
                                                     <i class="tim-icons icon-zoom-split"></i>
                                                 </a>
                                             @elseif ($transaction->transfer_id)
-                                                <a href="{{ route('transfer.show', $transaction->transfer) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More details">
+                                                {{-- <a href="{{ route('transfer.show', $transaction->transfer) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More details">
                                                     <i class="tim-icons icon-zoom-split"></i>
-                                                </a>
+                                                </a> --}}
                                             @else
                                                 <a href="{{ route('transactions.edit', $transaction) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Edit Transaction">
                                                     <i class="tim-icons icon-pencil"></i>
@@ -112,11 +112,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('transactions.create', ['type' => 'payment']) }}" class="btn btn-sm btn-primary">Payment</a>
+                        {{-- <a href="{{ route('transactions.create', ['type' => 'payment']) }}" class="btn btn-sm btn-primary">Payment</a> --}}
                         <a href="{{ route('transactions.create', ['type' => 'income']) }}" class="btn btn-sm btn-primary">Income</a>
                         <a href="{{ route('transactions.create', ['type' => 'expense']) }}" class="btn btn-sm btn-primary">Expense</a>
                         <a href="{{ route('sales.create') }}" class="btn btn-sm btn-primary">Sale</a>
-                        <a href="{{ route('transfer.create') }}" class="btn btn-sm btn-primary">Transfer</a>
+                        {{-- <a href="{{ route('transfer.create') }}" class="btn btn-sm btn-primary">Transfer</a> --}}
                     </div>
                 </div>
             </div>

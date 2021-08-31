@@ -41,6 +41,7 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request, Client $client)
     {
+       
         $client->create($request->all());
         
         return redirect()->route('clients.index')->withStatus('Successfully registered customer.');

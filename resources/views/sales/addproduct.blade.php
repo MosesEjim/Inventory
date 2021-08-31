@@ -23,6 +23,7 @@
                                 <div class="form-group{{ $errors->has('product_id') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-product">Product</label>
                                     <select name="product_id" id="input-product" class="form-select form-control-alternative{{ $errors->has('product_id') ? ' is-invalid' : '' }}" required>
+                                        <option disabled selected>--select---</option>
                                         @foreach ($products as $product)
                                             @if($product['id'] == old('product_id'))
                                                 <option value="{{$product['id']}}" selected>[{{ $product->category->name }}] {{ $product->name }} - Base price: {{ $product->price }}$</option>
@@ -36,7 +37,7 @@
 
                                 <div class="form-group{{ $errors->has('product_id') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-price">Price per Unit</label>
-                                    <input type="number" name="price" id="input-price" step=".01" class="form-control form-control-alternative{{ $errors->has('product_id') ? ' is-invalid' : '' }}" value="0" required>
+                                    <input type="number" name="price" id="input-price" step=".01" class="form-control form-control-alternative{{ $errors->has('product_id') ? ' is-invalid' : '' }}" value="0" required readonly>
                                     @include('alerts.feedback', ['field' => 'product_id'])
                                 </div>
 
@@ -78,5 +79,16 @@
         function updateTotal () {
             input_total.value = (parseInt(input_qty.value) * parseFloat(input_price.value))+"$";
         }
+
+        $('#input-product').on('change', function(){
+            let product = @json($products).find((product)=>{
+                return product.id ==$('#input-product').val();
+            });
+            input_price.value = product.price;
+            console.log($('#input-product').val());
+            console.log(@json($products).find((product)=>{
+                return product.id ==$('#input-product').val();
+            }))
+        })
     </script>
 @endpush

@@ -117,6 +117,7 @@ class SaleController extends Controller
 
     public function storeproduct(Request $request, Sale $sale, SoldProduct $soldProduct)
     {
+        
         $request->merge(['total_amount' => $request->get('price') * $request->get('qty')]);
 
         $soldProduct->create($request->all());

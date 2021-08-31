@@ -49,9 +49,10 @@ class TransactionController extends Controller
         $salesperiods['Week'] = Sale::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
         $transactionsperiods['Week'] = Transaction::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
 
+        
         $salesperiods['Month'] = Sale::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
         $transactionsperiods['Month'] = Transaction::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
-
+        
         $salesperiods['Trimester'] = Sale::whereBetween('created_at', [Carbon::now()->startOfQuarter(), Carbon::now()->endOfQuarter()])->get();
         $transactionsperiods['Trimester'] = Transaction::whereBetween('created_at', [Carbon::now()->startOfQuarter(), Carbon::now()->endOfQuarter()])->get();
 
@@ -92,12 +93,6 @@ class TransactionController extends Controller
             case 'expense':
                 return view('transactions.expense.create', [
                     'payment_methods' => PaymentMethod::all(),
-                ]);
-
-            case 'payment':
-                return view('transactions.payment.create', [
-                    'payment_methods' => PaymentMethod::all(),
-                    'providers' => Provider::all(),
                 ]);
 
             case 'income':
